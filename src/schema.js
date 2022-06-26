@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-cloudflare');
 
 const typeDefs = gql`
 type Query {
-  getDomains(
+  domains(
     shopper_id: String
     limit: Int
     marker: String
