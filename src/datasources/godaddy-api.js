@@ -23,6 +23,11 @@ class GodaddyAPI extends RESTDataSource {
             ...modified_date,
         }, {});
     }
+
+    async getDomain(domain) {
+        this.setBaseURL();
+        return await this.get('domains/' + domain, {}, {});
+    }
 }
 
 module.exports = GodaddyAPI;

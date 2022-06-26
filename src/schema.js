@@ -8,6 +8,7 @@ type Query {
     marker: String
     modified_date: String
   ): [Domain]
+  domain(domain: String!): Domain
 }
 
 enum DomainStatuses {
