@@ -15,10 +15,11 @@
     "graphql": "^16.5.0"
   },
   "devDependencies": {
-    "prettier": "^2.4.1",
-    "webpack": "^5.56.0"
+    "prettier": "^2.4.1"
   },
   "scripts": {
+    "build": "",
+    "dev": "wrangler dev --compatibility-date=$(date -I date)",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
