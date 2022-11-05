@@ -34,6 +34,38 @@ You can run it locally by [installing Wrangler](https://workers.cloudflare.com/d
 wrangler dev
 ````
 
+## Roadmap
+
+- [ ] Add support for GoDaddy Domains API
+    - [x] Query
+    - [ ] Mutation
+- [ ] Add support for GoDaddy Abuse API
+    - [ ] Query
+    - [ ] Mutation
+- [ ] Add support for GoDaddy Orders API
+    - [ ] Query
+- [ ] Add support for GoDaddy Countries API
+    - [ ] Query
+- [ ] Add support for GoDaddy Parking API
+    - [ ] Query
+- [ ] Add support for GoDaddy Agreements API
+    - [ ] Query
+- [ ] Add support for GoDaddy Subscriptions API
+    - [ ] Query
+    - [ ] Mutation
+- [ ] Add support for GoDaddy Reseller API
+    - [ ] Query
+    - [ ] Mutation
+- [ ] Add support for GoDaddy Certificates API
+    - [ ] Query
+    - [ ] Mutation
+- [ ] Add support for GoDaddy Aftermarket API
+    - [ ] Query
+    - [ ] Mutation
+- [ ] Add support for GoDaddy Shoppers API
+    - [ ] Query
+    - [ ] Mutation
+
 ## License
 
 This project is licensed with the [AGPL-3.0 License](https://github.com/dipakparmar/godaddy-graphql/blob/main/LICENSE).
