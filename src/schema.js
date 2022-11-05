@@ -4,8 +4,11 @@ const typeDefs = gql`
 type Query {
   domains(
     shopper_id: String
+    statuses: [DomainStatuses]
+    status_groups: [DomainStatusGroups]
     limit: Int
     marker: String
+    includes: [DomainIncludes]
     modified_date: String
   ): [Domain]
   domain(domain: String!): Domain
