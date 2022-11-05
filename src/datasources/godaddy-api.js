@@ -7,7 +7,7 @@ class GodaddyAPI extends RESTDataSource {
 
     setBaseURL() {
         const env = this.context.headers.get('X-API-ENV');
-        this.baseURL = 'https://api.' + (env == 'dev' ? 'ote-godaddy' : 'godaddy') + '.com/v1/';
+        this.baseURL = 'https://api.' + (env == 'OTE' ? 'ote-godaddy' : 'godaddy') + '.com/v1/';
     }
 
     willSendRequest(request) {
