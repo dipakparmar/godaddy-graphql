@@ -11,6 +11,12 @@ type Query {
     includes: [DomainIncludes]
     modified_date: String
   ): [Domain]
+  domain_agreements(
+    market_id: String
+    tlds: [String]!
+    privacy: Boolean!
+    for_transfer: Boolean
+  ): [DomainAgreement]
   domain(domain: String!): Domain
 }
 
@@ -302,6 +308,13 @@ type Domain {
   contactRegistrant: Contact
   contactBilling: Contact
   contactAdmin: Contact
+}
+
+type DomainAgreement {
+  agreementKey: String
+  content: String
+  title: String
+  url: String
 }
 `;
 

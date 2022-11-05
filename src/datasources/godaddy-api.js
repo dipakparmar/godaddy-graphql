@@ -56,15 +56,24 @@ class GodaddyAPI extends RESTDataSource {
     )
   }
 
-    async getDomains(shopper_id, limit, marker, modified_date) {
-        this.setBaseURL();
-        return await this.get('domains', {
-            ...shopper_id,
-            ...limit,
-            ...marker,
-            ...modified_date,
-        }, {});
-    }
+  async getDomainAgreements(market_id = 'en-US', tlds, privacy, for_transfer) {
+    this.setBaseURL()
+    tlds = tlds ? tlds.join(',') : ''
+    console.log(tlds)
+    return await this.get(
+      'domains/agreements',
+      {
+        ...(tlds && { tlds: tlds }), // comma separated list of tlds
+        ...(privacy && { privacy: privacy }), // boolean
+        ...(for_transfer && { for_transfer: for_transfer }), // boolean
+      },
+      {
+        headers: {
+          ...(market_id ? { 'X-Market-Id': market_id } : {}), // market id (e.g. en-US)
+        },
+      },
+    )
+  }
 
   async getDomain(domain) {
     this.setBaseURL()
