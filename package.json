@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "",
-    "dev": "wrangler dev --compatibility-date=$(date -I date)",
+    "dev": "wrangler dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
