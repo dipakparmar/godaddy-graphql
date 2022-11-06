@@ -22,13 +22,29 @@ module.exports = {
         includes,
         modified_date,
       ),
-    domain_agreements: async (_, { market_id, tlds, privacy, for_transfer }, {dataSources}) =>
+    domain_agreements: async (
+      _,
+      { market_id, tlds, privacy, for_transfer },
+      { dataSources },
+    ) =>
       dataSources.godaddyAPI.getDomainAgreements(
         market_id,
         tlds,
         privacy,
         for_transfer,
       ),
+    domain_availability: async (
+      _,
+      { domain, check_type, for_transfer },
+      { dataSources },
+    ) =>
+      dataSources.godaddyAPI.getDomainAvailability(
+        domain,
+        check_type,
+        for_transfer,
+      ),
+    domains_availability: async (_, { domains, check_type }, { dataSources }) =>
+      dataSources.godaddyAPI.getDomainsAvailability(domains, check_type),
     domain: async (_, { domain }, { dataSources }) =>
       dataSources.godaddyAPI.getDomain(domain),
   },

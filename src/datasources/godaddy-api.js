@@ -75,6 +75,39 @@ class GodaddyAPI extends RESTDataSource {
     )
   }
 
+  async getDomainAvailability(
+    domain,
+    check_type = 'FAST',
+    for_transfer = false,
+  ) {
+    this.setBaseURL()
+    return await this.get(
+      'domains/available',
+      {
+        domain: domain,
+        ...(check_type && { checkType: check_type }), // FAST or FULL or fast or full (default FAST)
+        ...(for_transfer && { forTransfer: for_transfer }), // boolean
+      },
+      {
+        headers: {},
+      },
+    )
+  }
+
+  async getDomainsAvailability(domains, check_type = 'FAST') {
+    this.setBaseURL()
+    const body = [...domains]
+    const path =
+      'domains/available' + (check_type ? '?checkType=' + check_type : '')
+    const data = await this.post(path, body, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    return data.domains
+  }
+
   async getDomain(domain) {
     this.setBaseURL()
     return await this.get('domains/' + domain, {}, {})
