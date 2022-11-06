@@ -65,7 +65,7 @@ class GodaddyAPI extends RESTDataSource {
       {
         ...(tlds && { tlds: tlds }), // comma separated list of tlds
         ...(privacy && { privacy: privacy }), // boolean
-        ...(for_transfer && { for_transfer: for_transfer }), // boolean
+        ...(for_transfer && { forTransfer: for_transfer }), // boolean
       },
       {
         headers: {
