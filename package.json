@@ -5,9 +5,10 @@
   "version": "1.0.0",
   "author": "Dipak Parmar <hi@dipak.tech>",
   "keywords": [
-    "bctransit",
-    "nextride",
-    "bctransitgraphql"
+    "graphql",
+    "godaddy",
+    "cloudflare",
+    "workers"
   ],
   "dependencies": {
     "apollo-datasource-rest": "^3.7.0",
