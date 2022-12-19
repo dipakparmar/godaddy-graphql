@@ -108,6 +108,16 @@ class GodaddyAPI extends RESTDataSource {
     return data.domains
   }
 
+  async getSupportedTlds() {
+    this.setBaseURL()
+    return await this.get(
+      'domains/tlds',
+      {},
+      {
+        headers: {},
+      },
+    )
+  }
   async getDomain(domain) {
     this.setBaseURL()
     return await this.get('domains/' + domain, {}, {})

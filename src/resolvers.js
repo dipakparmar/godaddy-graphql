@@ -45,6 +45,8 @@ module.exports = {
       ),
     domains_availability: async (_, { domains, check_type }, { dataSources }) =>
       dataSources.godaddyAPI.getDomainsAvailability(domains, check_type),
+    supported_tlds: async (_, {}, { dataSources }) =>
+      dataSources.godaddyAPI.getSupportedTlds(),
     domain: async (_, { domain }, { dataSources }) =>
       dataSources.godaddyAPI.getDomain(domain),
   },

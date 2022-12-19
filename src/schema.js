@@ -26,6 +26,7 @@ const typeDefs = gql`
       domains: [String]!
       check_type: DomainAvailabilityCheckType
     ): [DomainAvailabilityResponse]
+    supported_tlds: [SupportedTLD]
     domain(domain: String!): Domain
   }
 
@@ -338,6 +339,15 @@ const typeDefs = gql`
     domain: String
     period: Int
     price: Float
+  }
+
+  enum TLDType{
+    GENERIC
+    COUNTRY_CODE
+  }
+  type SupportedTLD {
+    name: String
+    type: TLDType
   }
 `
 
