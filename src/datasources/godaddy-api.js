@@ -63,7 +63,7 @@ class GodaddyAPI extends RESTDataSource {
       marker = res2[res2.length - 1].domain
       final_res.push(...res2)
     }
-    return res
+    return final_res
   }
 
   async getDomainAgreements(market_id = 'en-US', tlds, privacy, for_transfer) {
