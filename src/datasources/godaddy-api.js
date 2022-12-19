@@ -30,7 +30,7 @@ class GodaddyAPI extends RESTDataSource {
     shopper_id,
     statuses,
     status_groups,
-    limit,
+    limit = 100,
     marker,
     includes,
     modified_date,
