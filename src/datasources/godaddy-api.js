@@ -39,21 +39,31 @@ class GodaddyAPI extends RESTDataSource {
     statuses = statuses ? statuses.join(',') : ''
     status_groups = status_groups ? status_groups.join(',') : ''
     includes = includes ? includes.join(',') : ''
-    return await this.get(
-      'domains',
-      {
-        ...(statuses && { statuses: statuses }), // comma separated list of statuses
-        ...(limit && { limit: limit }),
-        ...(marker && { marker: marker }),
-        ...(includes && { includes: includes }), // comma separated list of includes
-        ...(modified_date && { modified_date: modified_date }), // ISO 8601 date
-      },
-      {
-        headers: {
-          ...(shopper_id ? { 'X-Shopper-Id': shopper_id } : {}),
+
+    let res = [];
+    let final_res = [];
+
+    while (res.length == limit || res.length == 0) {
+      const res2 = await this.get(
+        'domains',
+        {
+          ...(statuses && { statuses: statuses }), // comma separated list of statuses
+          ...(limit && { limit: limit }),
+          ...(marker && { marker: marker }),
+          ...(includes && { includes: includes }), // comma separated list of includes
+          ...(modified_date && { modified_date: modified_date }), // ISO 8601 date
         },
-      },
-    )
+        {
+          headers: {
+            ...(shopper_id ? { 'X-Shopper-Id': shopper_id } : {}),
+          },
+        },
+      )
+      res = res2
+      marker = res2[res2.length - 1].domain
+      final_res.push(...res2)
+    }
+    return res
   }
 
   async getDomainAgreements(market_id = 'en-US', tlds, privacy, for_transfer) {
