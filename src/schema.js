@@ -29,6 +29,9 @@ const typeDefs = gql`
     supported_tlds: [SupportedTLD]
     domain(domain: String!): Domain
   }
+  type Mutation {
+    cancel_domain(domain: String!): CancelDomainResponse
+  }
 
   enum DomainStatuses {
     ACTIVE
@@ -348,6 +351,10 @@ const typeDefs = gql`
   type SupportedTLD {
     name: String
     type: TLDType
+  }
+
+  type CancelDomainResponse {
+    domain: String
   }
 `
 

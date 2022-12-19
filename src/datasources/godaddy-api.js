@@ -118,6 +118,20 @@ class GodaddyAPI extends RESTDataSource {
       },
     )
   }
+
+  async cancelDomain(domain) {
+    this.setBaseURL()
+    const path = 'domains/' + domain
+    const res = await this.delete(
+      path,
+      {},
+      {
+        headers: {},
+      },
+    )
+    return { domain: domain } // for consistency with other responses and to use the domain name as callback when enqueuing
+  }
+
   async getDomain(domain) {
     this.setBaseURL()
     return await this.get('domains/' + domain, {}, {})

@@ -50,4 +50,9 @@ module.exports = {
     domain: async (_, { domain }, { dataSources }) =>
       dataSources.godaddyAPI.getDomain(domain),
   },
+  Mutation: {
+    cancel_domain: async (_, { domain }, { dataSources }) => {
+      return dataSources.godaddyAPI.cancelDomain(domain)
+    }
+  }
 }
